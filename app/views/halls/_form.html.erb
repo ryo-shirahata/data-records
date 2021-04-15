@@ -1,0 +1,35 @@
+  <div class="records-form-main">
+    <div class="records-form-contents">
+
+      <%= form_with model: @hall, local: true do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
+
+      <div class="new-records">
+        <div class="weight-bold-text">
+          名前
+        </div>
+        <%= f.text_area :name, class:"records-text-low", id:"hall-date", placeholder:"名前を入力", maxlength:"30" %>
+      </div>
+
+      <div class="new-records">
+        <div class="weight-bold-text">
+          機種
+        </div>
+        <%= f.text_area :machine, class:"records-text-low", id:"hall-machine", placeholder:"機種を入力", maxlength:"30" %>
+      </div>
+
+      <div class="new-records">
+        <div class="weight-bold-text">
+          データ
+        </div>
+        <%= f.text_area :data, class:"records-text-high", id:"hall-data", placeholder:"データを入力" ,maxlength:"100" %>
+      </div>
+
+      <div class="bottom-btn-contents">
+        <%= f.submit "保存する", class:"save-btn" %>
+        <%=link_to '戻る', root_path, class:"back-btn" %>
+      </div>
+
+      <% end %>
+    </div>
+  </div>

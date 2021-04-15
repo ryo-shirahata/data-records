@@ -1,0 +1,20 @@
+<%= render "shared/header" %>
+<div class='main'>
+
+  <div class='data-management'>
+    <h2 class='data-title'>
+      トップページ
+    </h2>
+    <div class='data-list'>
+      <% if user_signed_in? %>
+        <%= link_to "マイページ", user_path(current_user), class:"action-btn" %>
+        <%= link_to 'ホール登録', new_hall_path, class:"action-btn" %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"action-btn" %>
+      <% else %>
+        <%= link_to '新規登録', new_user_registration_path, class:"action-btn" %>
+        <%= link_to 'ログイン', new_user_session_path, class:"action-btn" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

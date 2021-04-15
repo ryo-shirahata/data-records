@@ -1,0 +1,12 @@
+<%= render "shared/header" %>
+
+  <div class="main">
+    <div class="show-inner">
+      <div class="data-wrapper">
+        <h2 class="page-heading">
+          保存したホール一覧
+        </h2>
+          <%= render partial: 'halls/hall', collection: @user.halls %>
+      </div>
+    </div>
+  </div>

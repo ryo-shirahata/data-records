@@ -1,0 +1,62 @@
+<%= render "shared/header" %>
+
+  <div class="records-form-main">
+    <div class="records-form-contents">
+
+      <div class="change-list">
+        <%= link_to "編集", edit_hall_path(@hall.id), class:"change-btn" %>
+        <%= link_to "削除", hall_path(@hall.id), method: :delete, class:"change-btn" %>
+      </div>
+
+      <div class="new-records">
+        <div class="weight-bold-text">
+          名前
+        </div>
+        <div class="records-text-low">
+          <%= @hall.name %>
+        </div>
+      </div>
+
+      <div class="new-records">
+        <div class="weight-bold-text">
+          機種
+        </div>
+        <div class="records-text-low">
+          <%= @hall.machine %>
+        </div>
+      </div>
+
+      <div class="new-records">
+        <div class="weight-bold-text">
+          データ
+        </div>
+        <div class="records-text-high">
+          <%= @hall.data %>
+        </div>
+      </div>
+
+      <div class="center-bold-text">
+        ＜当日データ＞
+      </div>
+      <%= form_with(model: [@hall, @value], local: true, class: "value-form") do |f| %>
+        <%= f.text_area :text, placeholder: "記録した内容は以下へ表示されます", rows: "2", maxlength:"100", class: "value-input" %>
+        <%= f.submit "保存", class: "value-btn" %>
+      <% end %>
+
+      <div class="center-bold-text">
+        ＜当日データ一覧＞
+      </div>
+      <% if @values %>
+        <% @values.each do |value| %>
+          <div class="values-text-high">
+            <%= value.text %>
+          </div>
+        <% end %>
+      <% end %>
+
+
+    </div>
+  </div>
+
+
+
