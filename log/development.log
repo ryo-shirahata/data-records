@@ -36227,3 +36227,48 @@ Processing by Devise::RegistrationsController#new as HTML
 Completed 200 OK in 33ms (Views: 30.8ms | ActiveRecord: 0.0ms | Allocations: 11046)
 
 
+Started GET "/users/sign_up" for ::1 at 2021-04-16 17:33:04 +0900
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 72)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 588)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 49.4ms | ActiveRecord: 0.0ms | Allocations: 11035)
+
+
+Started POST "/users" for ::1 at 2021-04-16 17:35:03 +0900
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"30T8sL1MyMpYUwO5WRDsFsOwq5nWMsEwVzh8fcVwderf0Jv7lHP6mWfKXeCePelrI+Uh0nDUjUJrR1+oF8C9FQ==", "user"=>{"nickname"=>"ryo", "email"=>"ryo@1", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (8.0ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ryo@1' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.0ms | Allocations: 68)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 593)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 3015ms (Views: 52.1ms | ActiveRecord: 8.6ms | Allocations: 1019488)
+
+
+Started POST "/users" for ::1 at 2021-04-16 17:35:10 +0900
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"ao12mjO8Q+fevTU7ZiRS/nIbKSbFpmpS8YtI9If0MwJqGRHRGoNxtOEka2KhCVeDkk6jbWNAJiDN9GshVUT7/Q==", "user"=>{"nickname"=>"ryo", "email"=>"ryo@1", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ryo@1' LIMIT 1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `nickname`, `created_at`, `updated_at`) VALUES ('ryo@1', '$2a$12$lzHuar6pwk3lPtZ.OU.vNOVAFvIpIrroQNYgzFesqE2UAU5WaeqWW', 'ryo', '2021-04-16 08:35:10.676517', '2021-04-16 08:35:10.676517')[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 272ms (ActiveRecord: 2.8ms | Allocations: 7449)
+
+
+Started GET "/" for ::1 at 2021-04-16 17:35:10 +0900
+Processing by HallsController#index as HTML
+  Rendering halls/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.4ms | Allocations: 77)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/halls/index.html.erb:9
+  Rendered halls/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1286)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.4ms | Allocations: 11565)
+
+
